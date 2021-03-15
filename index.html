@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>超簡単電光掲示板</title>
+    <!--Script-->
+	<script src="../../BasicTool/main.js"></script>
+	<script src="../../BasicTool/ga.js"></script>
+	<script src="./program.js"></script>
+    <!--Script-->
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        .form {
+            background-color: skyblue;
+            padding: 10px 20px;
+        }
+        
+        #board {
+            margin : 0 auto 40px;
+            width : 100%;
+            font-size : 64px;
+            text-align : center;
+            overflow : hidden;
+        }
+        #board p{
+            margin:0;
+            display : inline-block;
+            padding-left: 100%;
+            white-space : nowrap;
+            line-height : 1em;
+            animation : scrollBoard 60s linear infinite;
+        }
+            @keyframes scrollBoard{
+            0% { transform: translateX(0)}
+            100% { transform: translateX(-100%)}
+        }
+        
+        #footer {
+            position: absolute;
+            display: inline-block;
+            bottom:80px;
+            left: 0px;
+            width:100%;
+            color: #aaa;
+            font-size: 16px;
+            background: #555;
+        }
+    </style>
+</head>
+<body onload="init();">
+    <h1>超簡単電光掲示板</h1>
+    <div class="form">
+        メッセージ：<input type="text" name="message" id="message" size="50" value="こんにちは"><br/>
+        <button type="submit" onclick="post();"><big>投稿</big></button>
+    </div>
+    <hr/>
+	<div id="board"></div>
+    <div id="footer">
+        <script>
+            document.write("2021©️" + document.domain);
+        </script>
+    </div>
+</body>
+</html>
